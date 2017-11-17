@@ -10,3 +10,6 @@ buildNumber.properties
 node_modules/
 \.idea/
 dist/
+*.iml
+*.ipr
+*.iws

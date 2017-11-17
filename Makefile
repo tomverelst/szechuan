@@ -5,7 +5,7 @@ all: $(targets)
 
 .PHONY: install-morty
 install-morty:
-	(cd morty && npm install)
+	(cd morty/frontend && npm install)
 
 .PHONY: $(targets)
 $(targets):
