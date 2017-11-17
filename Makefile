@@ -32,7 +32,7 @@ morty-docker:
 .PHONY: mr-meeseeks-docker
 mr-meeseeks-docker:
 	@$(MAKE) quote
-	@(cd meeseeks && docker build -t tomverelst/mr-meeseeks . > /dev/null)
+	@(cd mr-meeseeks && docker build -t tomverelst/mr-meeseeks . > /dev/null)
 
 .PHONY: meeseeks-box-docker
 meeseeks-box-docker:
