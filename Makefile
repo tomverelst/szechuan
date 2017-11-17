@@ -57,6 +57,3 @@ start-adventure:
 .PHONY: end-adventure
 end-adventure:
 	@echo "The end."
-
-random:
-	echo $$(( $(RANDOM) % 4 ))
