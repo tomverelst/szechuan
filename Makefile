@@ -57,3 +57,10 @@ start-adventure:
 .PHONY: end-adventure
 end-adventure:
 	@echo "The end."
+
+.PHONY: push
+push:
+	docker push tomverelst/rick
+	docker push tomverelst/morty
+	docker push tomverelst/mr-meeseeks
+	docker push tomverelst/mcdonalds
