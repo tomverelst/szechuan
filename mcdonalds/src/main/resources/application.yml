@@ -1,3 +1,6 @@
+spring:
+  profiles: cloud
+
 server:
   port: ${PORT:8082}
 management:
@@ -12,3 +15,22 @@ spring:
   cloud:
     stream:
       default-binder: rabbit
+---
+spring:
+  profiles: kubernetes
+
+server:
+  port: ${PORT:8080}
+management:
+  security:
+    enabled: false
+spring:
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    stream:
+      default-binder: rabbit
+
