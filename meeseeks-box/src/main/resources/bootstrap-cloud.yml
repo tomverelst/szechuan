@@ -1,7 +1,0 @@
-server:
-  port: 8084
----
-spring:
-  profiles: cloud
-  rabbitmq:
-    host: ${cloudamqp.credentials.http_api_uri:localhost}
