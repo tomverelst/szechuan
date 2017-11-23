@@ -40,6 +40,7 @@ public class KubernetesMeeseeks implements Meeseeks {
         this.taskExecutor.setMaxPoolSize(1);
         this.taskExecutor.setCorePoolSize(1);
         this.taskExecutor.setWaitForTasksToCompleteOnShutdown(false);
+        this.taskExecutor.initialize();
     }
 
     @Override
