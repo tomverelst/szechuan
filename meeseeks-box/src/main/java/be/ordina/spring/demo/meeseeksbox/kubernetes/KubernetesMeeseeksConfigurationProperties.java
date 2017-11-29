@@ -10,7 +10,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class KubernetesMeeseeksConfigurationProperties {
 
     private String namespace = "default";
-    private String replicaSet= "rs-meeseeks";
+    private String replicaSet= "mr-meeseeks";
 
 
 

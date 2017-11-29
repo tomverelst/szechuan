@@ -2,13 +2,13 @@
   <div>
     <my-header></my-header>
     <my-nav :nrOfMessages="nrOfMessages" :nrOfMeeseeks="nrOfMeeseeks" :nrOfSzechuanFound="nrOfSzechuanFound"></my-nav>
-    <audio ref="szechuanSauce" src="sounds/szechuan-sauce.mp3"></audio>
-    <audio ref="mrMeeseeksSpawn" src="sounds/mr-meeseeks-spawn.mp3"></audio>
-    <audio ref="imMrMeeseeks1" src="sounds/mr-meeseeks-1.mp3"></audio>
-    <audio ref="imMrMeeseeks2" src="sounds/mr-meeseeks-2.mp3"></audio>
-    <audio ref="imMrMeeseeks3" src="sounds/mr-meeseeks-3.wav"></audio>
-    <audio ref="justWannaDie" src="sounds/just-wanna-die.mp3"></audio>
-    <audio ref="wubbaLubbaDubDub" src="sounds/wubba-lubba-dub-dub.wav"></audio>
+    <audio ref="szechuanSauce" src="/morty/sounds/szechuan-sauce.mp3"></audio>
+    <audio ref="mrMeeseeksSpawn" src="/morty/sounds/mr-meeseeks-spawn.mp3"></audio>
+    <audio ref="imMrMeeseeks1" src="/morty/sounds/mr-meeseeks-1.mp3"></audio>
+    <audio ref="imMrMeeseeks2" src="/morty/sounds/mr-meeseeks-2.mp3"></audio>
+    <audio ref="imMrMeeseeks3" src="/morty/sounds/mr-meeseeks-3.wav"></audio>
+    <audio ref="justWannaDie" src="/morty/sounds/just-wanna-die.mp3"></audio>
+    <audio ref="wubbaLubbaDubDub" src="/morty/sounds/wubba-lubba-dub-dub.wav"></audio>
     <div class="columns">
       <div class="column">
         <table class="table is-fullwidth is-striped is-narrow">
@@ -70,7 +70,7 @@
             </p>
           </article>
           <figure class="image overlay-container" v-on:click="startSearching">
-            <img src="img/rick.gif">
+            <img src="/morty/img/rick.gif">
             <div class="overlay">
               <div class="search-text">Get That Szechuan Sauce!</div>
             </div>
@@ -85,7 +85,7 @@
             </p>
           </article>
           <figure class="image overlay-container" v-on:click="spawnMeeseeks">
-            <img src="img/meeseeks.gif">
+            <img src="/morty/img/meeseeks.gif">
             <div class="overlay">
               <div class="search-text">Press The Meeseeks Box!</div>
             </div>
@@ -100,7 +100,7 @@
             </p>
           </article>
           <figure class="image">
-            <img src="img/mcdonalds.gif">
+            <img src="/morty/img/mcdonalds.gif">
           </figure>
         </div>
       </div>

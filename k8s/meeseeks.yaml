@@ -51,7 +51,7 @@ spec:
     spec:
       containers:
       - name: meeseeks-box
-        image: tomverelst/meeseeks-box
+        image: tomverelst/meeseeks-box:1.0.1
         ports:
         - containerPort: 8080
         env:

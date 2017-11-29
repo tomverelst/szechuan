@@ -5,7 +5,7 @@
         <div class="columns">
           <div class="column is-narrow">
             <figure class="image is-64x64">
-              <img src="img/spring-cloud.png">
+              <img src="/morty/img/spring-cloud.png">
             </figure>
           </div>
           <div class="column">
