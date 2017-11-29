@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: morty
-        image: tomverelst/rick
+        image: tomverelst/morty
         ports:
         - containerPort: 8080
         env:
@@ -42,6 +42,7 @@ metadata:
     app: rick-n-morty
   name: morty
 spec:
+  #type: NodePort
   ports:
   - name: http
     port: 8080

@@ -1,20 +1,18 @@
 spring:
   profiles: cloud
 
-server:
-  port: 8084
-
-spring:
   rabbitmq:
     host: ${cloudamqp.credentials.http_api_uri:localhost}
+
+server:
+  port: 8084
 ---
 spring:
   profiles: kubernetes
-
+  rabbitmq:
+    host: rabbitmq
 server:
   port: 8080
 
-spring:
-  rabbitmq:
-    host: rabbitmq
+
 

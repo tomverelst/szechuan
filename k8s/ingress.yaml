@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: rick-n-morty-ingress
+  labels:
+    app: rick-n-morty
+    component: ingress
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /rick/*
+        backend:
+          serviceName: rick
+          servicePort: 8080
+      - path: /morty/*
+        backend:
+          serviceName: morty
+          servicePort: 8080
+      - path: /meeseeks-box/*
+        backend:
+          serviceName: meeseeks-box
+          servicePort: 8080

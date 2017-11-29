@@ -135,7 +135,7 @@
     },
     methods: {
       setupStream () {
-        let es = new EventSource('/events')
+        let es = new EventSource('/morty/events')
 
         es.addEventListener('message', event => {
           let data = JSON.parse(event.data)
@@ -197,17 +197,17 @@
       },
       startSearching () {
         this.$refs.szechuanSauce.play()
-        axios.get('https://rnm-rick.cfapps.io/').catch(function (error) {
+        axios.get('/rick').catch(function (error) {
           console.log(error.message)
         })
       },
       spawnMeeseeks () {
-        axios.post('https://rnm-meeseeks-box.cfapps.io/').catch(function (error) {
+        axios.post('/meeseeks-box').catch(function (error) {
           console.log(error.message)
         })
       },
       terminateMeeseeks () {
-        axios.delete('https://rnm-meeseeks-box.cfapps.io/').catch(function (error) {
+        axios.delete('/meeseeks-box').catch(function (error) {
           console.log(error.message)
         })
       }
