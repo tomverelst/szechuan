@@ -2,24 +2,24 @@ apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   labels:
-    component: rick
+    component: mcdonalds
     app: rick-n-morty
-  name: rick
+  name: mcdonalds
 spec:
   selector:
     matchLabels:
-      component: rick
+      component: mcdonalds
       app: rick-n-morty
   replicas: 1 # tells deployment to run 1 pod matching the template
   template: # create pods using pod definition in this template
     metadata:
       labels:
-        component: rick
+        component: mcdonalds
         app: rick-n-morty
     spec:
       containers:
-      - name: rick
-        image: tomverelst/rick
+      - name: mcdonalds
+        image: tomverelst/mcdonalds
         ports:
         - containerPort: 8080
         env:
@@ -30,23 +30,17 @@ spec:
           - name: SPRING_RABBITMQ_PORT
             value: "5672"
           - name: SPRING_RABBITMQ_USERNAME
-            valueFrom:
-              secretKeyRef:
-                name: rabbitmq-credentials
-                key: user
+            value: "guest"
           - name: SPRING_RABBITMQ_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: rabbitmq-credentials
-                key: password
+            value: "guest"
 ---
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    component: rick
+    component: mcdonalds
     app: rick-n-morty
-  name: rick
+  name: mcdonalds
 spec:
   type: NodePort
   ports:
@@ -54,5 +48,5 @@ spec:
     port: 8080
     targetPort: 8080
   selector:
-    component: rick
+    component: mcdonalds
     app: rick-n-morty

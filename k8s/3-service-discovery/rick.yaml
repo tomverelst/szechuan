@@ -30,15 +30,9 @@ spec:
           - name: SPRING_RABBITMQ_PORT
             value: "5672"
           - name: SPRING_RABBITMQ_USERNAME
-            valueFrom:
-              secretKeyRef:
-                name: rabbitmq-credentials
-                key: user
+            value: "guest"
           - name: SPRING_RABBITMQ_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: rabbitmq-credentials
-                key: password
+            value: "guest"
 ---
 apiVersion: v1
 kind: Service
