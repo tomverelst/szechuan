@@ -64,3 +64,4 @@ push:
 	docker push tomverelst/morty
 	docker push tomverelst/mr-meeseeks
 	docker push tomverelst/mcdonalds
+	docker push tomverelst/meeseeks-box
