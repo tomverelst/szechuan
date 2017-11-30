@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: rick-n-morty
+    component: rabbitmq
+  name: rabbitmq
+spec:
+  ports:
+  - name: msg
+    port: 5672
+    targetPort: 5672
+  - name: management
+    port: 15672
+    targetPort: 15672
+  selector:
+    app: rick-n-morty
+    component: rabbitmq
