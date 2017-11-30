@@ -1,7 +1,7 @@
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: frontend-scaler
+  name: meeseeks-scaler
 spec:
   scaleTargetRef:
     kind: ReplicaSet

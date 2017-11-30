@@ -1,0 +1,57 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    component: morty
+    app: rick-n-morty
+  name: morty
+spec:
+  selector:
+    matchLabels:
+      component: morty
+      app: rick-n-morty
+  replicas: 1 # tells deployment to run 1 pod matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        component: morty
+        app: rick-n-morty
+    spec:
+      containers:
+      - name: morty
+        image: tomverelst/morty:1.0.2
+        ports:
+        - containerPort: 8080
+        env:
+          - name: SPRING_PROFILES_ACTIVE
+            value: "kubernetes"
+          - name: SPRING_RABBITMQ_HOST
+            value: "rabbitmq"
+          - name: SPRING_RABBITMQ_PORT
+            value: "5672"
+          - name: SPRING_RABBITMQ_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: rabbitmq-credentials
+                key: user
+          - name: SPRING_RABBITMQ_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: rabbitmq-credentials
+                key: password
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    component: morty
+    app: rick-n-morty
+  name: morty
+spec:
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+  selector:
+    component: morty
+    app: rick-n-morty
