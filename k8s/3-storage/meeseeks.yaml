@@ -1,0 +1,84 @@
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  labels:
+    app: rick-n-morty
+    component: mr-meeseeks
+  name: mr-meeseeks
+spec:
+  replicas: 0 # We start with no meeseeks in the microverse
+  template:
+    metadata:
+      labels:
+        app: rick-n-morty
+        component: mr-meeseeks
+    spec:
+      containers:
+      - image: tomverelst/mr-meeseeks
+        name: mr-meeseeks
+        ports:
+        - containerPort: 8080
+        env:
+          - name: SPRING_PROFILES_ACTIVE
+            value: "kubernetes"
+          - name: SPRING_RABBITMQ_HOST
+            value: "rabbitmq"
+          - name: SPRING_RABBITMQ_PORT
+            value: "5672"
+          - name: SPRING_RABBITMQ_USERNAME
+            value: "guest"
+          - name: SPRING_RABBITMQ_PASSWORD
+            value: "guest"
+---
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  labels:
+    component: meeseeks-box
+    app: rick-n-morty
+  name: meeseeks-box
+spec:
+  selector:
+    matchLabels:
+      component: meeseeks-box
+      app: rick-n-morty
+  replicas: 1 # tells deployment to run 1 pod matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        component: meeseeks-box
+        app: rick-n-morty
+    spec:
+      containers:
+      - name: meeseeks-box
+        image: tomverelst/meeseeks-box:1.0.1
+        ports:
+        - containerPort: 8080
+        env:
+          - name: SPRING_PROFILES_ACTIVE
+            value: "kubernetes"
+          - name: SPRING_RABBITMQ_HOST
+            value: "rabbitmq"
+          - name: SPRING_RABBITMQ_PORT
+            value: "5672"
+          - name: SPRING_RABBITMQ_USERNAME
+            value: "guest"
+          - name: SPRING_RABBITMQ_PASSWORD
+            value: "guest"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    component: meeseeks-box
+    app: rick-n-morty
+  name: meeseeks-box
+spec:
+  type: NodePort
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+  selector:
+    component: meeseeks-box
+    app: rick-n-morty
